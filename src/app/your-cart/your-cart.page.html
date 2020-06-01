@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button [routerLink]="['/pizza-list']">
+      <ion-icon slot="icon-only" name="list"></ion-icon>
+    </ion-button>
+    <ion-button [routerLink]="['/form']" >
+      <ion-icon slot="icon-only" name="add-circle"></ion-icon>
+    </ion-button>
+    <ion-button [routerLink]="['/admin']">
+      <ion-icon slot="icon-only" name="star"></ion-icon>
+    </ion-button>
+    <ion-button [routerLink]="['/your-cart']" color="secondary">
+      <ion-icon slot="icon-only" name="cart"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card style="font-size: 1.2em;">Your cart : <br>(Number of articles :{{cart.length}})</ion-card>
+  <div *ngFor="let pizza of cart; let i = index">
+    <ion-card>{{pizza.name}} : {{pizza.price}} € <ion-button (click)="deletePizza(i)" color="dark"><ion-icon name="trash-bin-sharp"></ion-icon></ion-button></ion-card>
+  </div>
+  <br>
+  <ion-card style="font-size: 1.5em;">Total price:  {{totalPrice}} € </ion-card>
+</ion-content>

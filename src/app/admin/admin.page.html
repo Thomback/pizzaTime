@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button [routerLink]="['/pizza-list']">
+      <ion-icon slot="icon-only" name="list"></ion-icon>
+    </ion-button>
+    <ion-button [routerLink]="['/form']" >
+      <ion-icon slot="icon-only" name="add-circle"></ion-icon>
+    </ion-button>
+    <ion-button [routerLink]="['/admin']" color="secondary">
+      <ion-icon slot="icon-only" name="star"></ion-icon>
+    </ion-button>
+    <ion-button [routerLink]="['/your-cart']">
+      <ion-icon slot="icon-only" name="cart"></ion-icon> {{cartCounter}}
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card><h1>Admin</h1></ion-card>
+  <h2 style="background-color: black; color: wheat;">Pizza list</h2>
+
+  <div *ngFor="let pizza of myPizzaList; let i = index">
+    <ion-card><ion-button color="light" [routerLink]="['/form']"><ion-icon name="pencil-sharp"></ion-icon></ion-button>
+      <ion-button color="dark" (click)="deletePizza(i)"><ion-icon name="trash-bin-sharp"></ion-icon></ion-button>
+      {{pizza.name}}</ion-card>
+  </div>
+  <br>
+  <h2 style="background-color: black; color: wheat;">Ingredient list</h2>
+  <div *ngFor="let ingredient of myIngredientList; let i = index">
+    <ion-card><ion-button color="light" [routerLink]="['/form']"><ion-icon name="pencil-sharp"></ion-icon></ion-button>
+      <ion-button color="dark" (click)="deleteIngredient(i)"><ion-icon name="trash-bin-sharp"></ion-icon></ion-button>
+      {{ingredient.id}} : {{ingredient.nom}}</ion-card>
+  </div>
+</ion-content>

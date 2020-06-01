@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button [routerLink]="['/pizza-list']">
+      <ion-icon slot="icon-only" name="list"></ion-icon>
+    </ion-button>
+    <ion-button [routerLink]="['/form']" >
+      <ion-icon slot="icon-only" name="add-circle"></ion-icon>
+    </ion-button>
+    <ion-button [routerLink]="['/admin']">
+      <ion-icon slot="icon-only" name="star"></ion-icon>
+    </ion-button>
+    <ion-button [routerLink]="['/your-cart']">
+      <ion-icon slot="icon-only" name="cart"></ion-icon> {{cartCounter}}
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-title style="margin:1em;">The {{ pizza.name }}</ion-title>
+  </ion-card>
+  <ion-img [src]="pizza.photo" style="margin: 0.5em;"></ion-img>
+  <ion-card>Price : {{ pizza.price }}€</ion-card>
+  <ion-card>Ingredients :
+    <div *ngFor="let ingredient of pizza.ingredients">
+      <div *ngFor="let ingredients of ingredientList">
+        <div *ngIf="ingredients.id === ingredient">
+          {{ingredients.nom}}
+        </div>
+      </div>
+    </div>
+  </ion-card>
+  
+  <div style="text-align: center;">
+    <ion-button (click)="alert(pizza)" color="light"><ion-icon name="cart-outline"></ion-icon></ion-button>
+  </div>
+
+</ion-content>

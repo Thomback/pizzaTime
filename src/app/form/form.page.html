@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button [routerLink]="['/pizza-list']">
+      <ion-icon slot="icon-only" name="list"></ion-icon>
+    </ion-button>
+    <ion-button [routerLink]="['/form']" color="secondary">
+      <ion-icon slot="icon-only" name="add-circle"></ion-icon>
+    </ion-button>
+    <ion-button [routerLink]="['/admin']">
+      <ion-icon slot="icon-only" name="star"></ion-icon>
+    </ion-button>
+    <ion-button [routerLink]="['/your-cart']">
+      <ion-icon slot="icon-only" name="cart"></ion-icon> {{cartCount}}
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <h1>Ingredients</h1>
+    <form (ngSubmit)="ingredientForm()">
+      <ion-item>
+        <ion-label>Name</ion-label>
+        <ion-input placeholder="Pineaple"></ion-input>
+      </ion-item>
+      <ion-button color="light" type="submit"><ion-icon name="add-circle-outline"></ion-icon>Add</ion-button>
+    </form>
+  </ion-card>
+  <ion-card>
+    <h1>Pizzas</h1>
+    <form>
+      <ion-item>
+        <ion-label>Photo</ion-label>
+        <ion-input placeholder="http://thisisanexample.jpg"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Name</ion-label>
+        <ion-input placeholder="CheesyBacon"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Price</ion-label>
+        <ion-input placeholder="In €"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Ingredients</ion-label>
+        <ion-input placeholder="Pineaple"></ion-input>
+      </ion-item>
+      <ion-button color="light" type="submit"><ion-icon name="add-circle-outline"></ion-icon>Add</ion-button>
+    </form>
+  </ion-card>
+</ion-content>

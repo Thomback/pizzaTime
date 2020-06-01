@@ -1,0 +1,22 @@
+
+ion-col{
+    border-style: solid;
+    border-width: 1px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0;
+    padding: 0;
+}
+
+.enTete{
+    background-color: lightgray;
+    font-weight: bold;
+    border-style: double;
+}
+
+ion-row:hover{
+    background-color: lightblue;
+}
